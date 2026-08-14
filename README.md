@@ -56,8 +56,7 @@ The way the program looks.
       The Keyboard Screen (Pane)
 
 
-The dynamically resizable elements.
-
 <img width="174" height="203" alt="image" src="https://github.com/user-attachments/assets/8db26de8-522c-4c07-94c7-f8add9d33ca0" />
 
+      The dynamically resizable elements.
 
