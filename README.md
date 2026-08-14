@@ -84,8 +84,3 @@ Link to the download of JavaFX files. Download the SDK file (of the two, these b
       
       https://www.oracle.com/java/technologies/downloads/javafx/
 
-Additionally, Java SDK version must be opensdk-24-sdk or higher in order to run this application.
-            
-            https://www.oracle.com/java/technologies/downloads/
-
-
