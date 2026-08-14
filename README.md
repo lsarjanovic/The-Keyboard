@@ -1,7 +1,7 @@
 # The-Keyboard
 The Keyboard is a learning JavaFX project for typing by mouse-clicking. It had also been intended as a way to learn GUI element placement, and manipulation by coding. TheKeyboard had been written in Notepad++. 
 
-Project had been compiled manually, by command
+The project code had been compiled manually, by command
 
 javac --module-path ../lib/javafx/lib --add-modules javafx.controls TheKeyboard.java
 
