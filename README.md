@@ -9,10 +9,10 @@ and run by command
 
       java --module-path path_to_javafx_/lib_library --add-modules javafx.controls TheKeyboard
 
-during code testing, and writing. Compiling TheKeyboard.java compiles all .java folders, because it is the highest file in .java file hierarchy of the project.   
+during code testing, and writing. Compiling TheKeyboard.java compiles all .java folders, because it is the highest file in .java file dependancy graph of the project.   
       
 The module-info.java is not compiled, but is not necessary to run the project outside of .jar file.
-      At this time, a .jar file theKeyboard.jar can be run by command
+      At this time, the .jar file theKeyboard.jar can be run by command
 
       java --module-path path_to_javafx_/lib_library --add-modules javafx.controls -jar theKeyboard.jar
 
