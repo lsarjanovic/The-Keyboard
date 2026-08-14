@@ -1,9 +1,9 @@
 # The-Keyboard
 The Keyboard is a learning JavaFX project for typing by mouse-clicking. It had also been intended as a way to learn UI element placement, and manipulation by coding. TheKeyboard had been written in Notepad++. 
 
-The project includes dynamic resizing with resizing of window of all elements with the resizing of the window, a trie structure with 3 suggest buttons, and the keyboard. There is the _-Home_ button which moves to the Home Pane (Screen), with The Keyboard button, and the *_ _ _* space button, _--D_ button to delete a single character, the shift button _->_, for capital numbers, and _-Discard-_ button which deletes the entire word.
+The project includes dynamic resizing with resizing of window of all elements with the resizing of the window, a trie (class) structure with 3 suggest buttons, and the keyboard. There is the _-Home_ button which moves to the Home Pane (Screen), with The Keyboard button, and the *_ _ _* space button, _--D_ button to delete a single character, the shift button _->_, for capital numbers, and _-Discard-_ button which deletes the entire word.
 
-Additionally, the _-Enter-_ button pushes the written words to the trie structure which writes suggestions (the three buttons) which may (attempt to) complete the currently written word, (and does if clicked,) providing the most often recuring (written) word with this root. Therefore, for _"en"_ it would provide _"engine"_ as suggestion one, if it had been written beforehand (more than any other word with the root _"en"_).
+Additionally, the _-Enter-_ button pushes the written words to the trie (class) structure which writes suggestions (the three buttons) which may (attempt to) complete the currently written word, (and does if clicked,) providing the most often recuring (written) word with this root. Therefore, for _"en"_ it would provide _"engine"_ as suggestion one, if it had been written beforehand (more than any other word with the root _"en"_).
 In order for a suggestion to be provided, it must be written at least once, therefore, as the user (customer) writes more on the keyboard, he is increasingly provided the suggestion which may be most likely for the way he may speak (write).
 
 This code had been written without version-control, but any changes made to the project will be observable in git version control, as it may greatly contribute to the managment of the project.
@@ -67,7 +67,7 @@ At this time, the .jar file theKeyboard.jar can be run (to run the application) 
 
 but requires javafx libraries to be downloaded, and present in the same folder as theKeyboard.jar file, and that you may _cd_ to the correct folder, where it had been downloaded for example. 
       
-I am working on improving the user experience by structuring the project in a msi, rpm, and other file types for different distributions, which would ease the running of the application. 
+I am working on improving the user experience by packaging the project in a msi, rpm, and other file types for different distributions, which would ease the running of the application. 
     
 This will be done manually in jpackage likely, without the compromise of an IDE. Code files, without compiled files can be found in another folder named **src** at _theKeyboard/src_ folder.
       
