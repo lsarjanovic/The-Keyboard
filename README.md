@@ -16,7 +16,7 @@ The module-info.java is not compiled, but is not necessary to run the project ou
 
       java --module-path path_to_javafx_/lib_library add-modules javafx.controls -jar theKeyboard.jar
 
-but requires javafx libraries to be downloaded, and be in the same folder as theKeyboard.jar file, and that you may _cd_ to the correct folder, where it had been downloaded for example. 
+but requires javafx libraries to be downloaded, and present in the same folder as theKeyboard.jar file, and that you may _cd_ to the correct folder, where it had been downloaded for example. 
       
 I am working on improving the user experience by structuring the project in a msi, rpm, and file types for different distributions, which would ease the running of the application. 
     
