@@ -40,6 +40,7 @@ Additionally, the -Enter- button pushes the written words to the trie structure 
 In order for a suggestion to be provided, it must be written at least once, therefore, as the user (customer) writes more on the keyboard, he is increasingly provided the suggestion which may be most likely for the way he may speak (write).
 
 The way the program looks.
-<img width="964" height="567" alt="image" src="https://github.com/user-attachments/assets/c93a01c5-88cf-437d-ace4-ad5d51f9671f" />
+<img width="1020" height="560" alt="image" src="https://github.com/user-attachments/assets/16d2323d-97a5-4091-93e8-e30ff04f00e0" />
+
 
 
