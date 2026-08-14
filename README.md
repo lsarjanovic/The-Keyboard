@@ -1,5 +1,5 @@
 # The-Keyboard
-The Keyboard is a learning JavaFX project, for typing by mouse-clicking. It had also been intended as a way to learn GUI element placement, and manipulation by coding. TheKeyboard had been written in Notepad++. 
+The Keyboard is a learning JavaFX project for typing by mouse-clicking. It had also been intended as a way to learn GUI element placement, and manipulation by coding. TheKeyboard had been written in Notepad++. 
 
 Project had been compiled manually, by command
 
@@ -18,7 +18,7 @@ but not in project src file.
 java --module-path lib/javafx/lib add-modules javafx.controls -jar theKeyboard.jar
 
 but requires lib/javafx/lib to be downloaded, and be in the same folder as theKeyboard.jar file which is why these are provided in folder the_keyboard_jar, and that you may _cd_ to the correct folder, where it had been downloaded for example. 
-      I am working on improving the user experience by structuring the project in a msi, rpm, and other bundles for different distributions, which would ease the testing of the project. 
+      I am working on improving the user experience by structuring the project in a msi, rpm, and other bundles for different distributions, which would ease the running of the application. 
     This will be done manually in jpackage likely, without the compromise of an IDE. Code files, without compiled files can be found in another folder named the_keyboard_code.
       This code can be compiled, and run by the two commands provided that you _cd_ to the correct folder, for example where they had been downloaded (and are right now).
 
