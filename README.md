@@ -23,7 +23,7 @@ I am working on improving the user experience by structuring the project in a ms
     
 This will be done manually in jpackage likely, without the compromise of an IDE. Code files, without compiled files can be found in another folder named **src** at _theKeyboard/src_ folder.
       
-This code can be compiled, and run by the two commands provided that you _cd_ to the correct folder, for example where they had been downloaded (and are right now), and that _javafx_/lib_library is downloaded.
+This code can be compiled, and run by the two commands provided that you _cd_ to the correct folder, for example where they had been downloaded (and are right now), and that _javafx/lib_ library is downloaded.
 
       javac --module-path path_to_javafx_library --add-modules javafx.controls TheKeyboard.java
 
