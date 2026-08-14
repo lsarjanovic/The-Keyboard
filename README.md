@@ -31,7 +31,7 @@ This code can be compiled, and run by the two commands provided that you _cd_ to
 javac (command), which will compile the files to .class files, and 
 java (command), which will run the (compiled) .class files.
 
-Link to the download of JavaFX files.
+Link to the download of JavaFX files. Download the SDK file (of the two, these being SDK, and JMOD).
       
       https://www.oracle.com/java/technologies/downloads/javafx/
 
