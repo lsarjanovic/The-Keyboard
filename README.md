@@ -43,16 +43,21 @@ The way the program looks.
 
 <img width="800" height="455" alt="The Home Screen (Pane), image" class="center" src="https://github.com/user-attachments/assets/369b576f-b2fc-4cef-ac54-7b026611a562" />
                                     
-The Home Screen (Pane)
+      The Home Screen (Pane)
 
 
 <img width="800" height="455" alt="The Keyboard Screen (Pane) with button names, image" src="https://github.com/user-attachments/assets/a785d399-ce62-44ab-853c-59fd99b1c020" />
 
-The Keyboard Screen (Pane) with button names
+      The Keyboard Screen (Pane) with button names
 
 
 <img width="800" height="455" alt="The Keyboard Screen (Pane), image" class="center" src="https://github.com/user-attachments/assets/16d2323d-97a5-4091-93e8-e30ff04f00e0" />
 
-The Keyboard Screen (Pane)
+      The Keyboard Screen (Pane)
+
+
+The dynamically resizable elements.
+
+<img width="174" height="203" alt="image" src="https://github.com/user-attachments/assets/8db26de8-522c-4c07-94c7-f8add9d33ca0" />
 
 
