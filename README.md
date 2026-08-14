@@ -14,17 +14,17 @@ The way the program looks.
 
 <img width="800" height="455" alt="The Home Screen (Pane), image" class="center" src="https://github.com/user-attachments/assets/369b576f-b2fc-4cef-ac54-7b026611a562" />
                                     
-      The Home Screen (Pane)
+      Image_1: The Home Screen (Pane)
 
 
 <img width="800" height="455" alt="The Keyboard Screen (Pane) with button names, image" src="https://github.com/user-attachments/assets/a785d399-ce62-44ab-853c-59fd99b1c020" />
 
-      The Keyboard Screen (Pane) with button names
+      Image_2: The Keyboard Screen (Pane) with button names
 
 
 <img width="800" height="455" alt="The Keyboard Screen (Pane), image" class="center" src="https://github.com/user-attachments/assets/16d2323d-97a5-4091-93e8-e30ff04f00e0" />
 
-      The Keyboard Screen (Pane)
+      Image_3: The Keyboard Screen (Pane)
 
       ________________________________________________________________________________
 
@@ -32,21 +32,20 @@ The way the program looks.
 
 <img width="1128" height="480" alt="image" src="https://github.com/user-attachments/assets/6c696aaf-221e-4cfa-989e-11974c968d94" />
 
-      Dynamic resizing of elements 1
+      Image_4: Dynamic resizing of elements 1
 
 <img width="757" height="692" alt="image" src="https://github.com/user-attachments/assets/bb043413-f4cb-4ef6-aa04-0501b5bd935d" />
 
-      Dynamic resizing of elements 2
+      Image_5: Dynamic resizing of elements 2
 
 <img width="174" height="203" alt="resizing_of_elements_1" src="https://github.com/user-attachments/assets/8db26de8-522c-4c07-94c7-f8add9d33ca0" />
 
-      Dynamic resizing of elements 3
+      Image_6: Dynamic resizing of elements 3
 
 <img width="1365" height="345" alt="resizing_of_elements_2" src="https://github.com/user-attachments/assets/4d2a5cd2-6afa-4aa2-9150-df76b2bbc845" />
 
-      Dynamic resizing of elements 4
+      Image_7: Dynamic resizing of elements 4
       
-
       ________________________________________________________________
 
 
