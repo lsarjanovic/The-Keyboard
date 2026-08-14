@@ -6,8 +6,6 @@ The project includes dynamic resizing with resizing of window of all elements wi
 Additionally, the _-Enter-_ button pushes the written words to the trie class (structure) which writes suggestions (the three buttons) which may (attempt to) complete the currently written word, (and does if clicked,) providing the most often recuring (written) word with this root. Therefore, for _"en"_ it would provide _"engine"_ as suggestion one, if it had been written beforehand (more than any other word with the root _"en"_).
 In order for a suggestion to be provided, it must be written at least once, therefore, as the user (customer) writes more on the keyboard, he is increasingly provided the suggestion which may be most likely for the way he may speak (write).
 
-This code had been written without version-control, but any changes made to the project will be observable in git version control, as it may greatly contribute to the managment of the project.
-
 The way the program looks.
             
       _________________________________________________________________________________
