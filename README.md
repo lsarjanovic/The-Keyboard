@@ -14,7 +14,7 @@ during code testing, and writing. Compiling TheKeyboard.java compiles all .java 
 The module-info.java is not compiled, but is not necessary to run the project outside of .jar file.
       At this time, a .jar file theKeyboard.jar can be run by command
 
-      java --module-path path_to_javafx_/lib_library add-modules javafx.controls -jar theKeyboard.jar
+      java --module-path path_to_javafx_/lib_library --add-modules javafx.controls -jar theKeyboard.jar
 
 but requires javafx libraries to be downloaded, and present in the same folder as theKeyboard.jar file, and that you may _cd_ to the correct folder, where it had been downloaded for example. 
       
