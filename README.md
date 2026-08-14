@@ -41,9 +41,8 @@ In order for a suggestion to be provided, it must be written at least once, ther
 
 The way the program looks.
 
-<img width="1920" height="1078" alt="The Home Screen (Pane)" class="center" src="https://github.com/user-attachments/assets/369b576f-b2fc-4cef-ac54-7b026611a562" />
+<img width="800" height="455" alt="The Home Screen (Pane)" class="center" src="https://github.com/user-attachments/assets/369b576f-b2fc-4cef-ac54-7b026611a562" />
                                     The Home Screen (Pane)
-
 
 <img width="800" height="455" alt="The Keyboard Screen (Pane)" class="center" src="https://github.com/user-attachments/assets/16d2323d-97a5-4091-93e8-e30ff04f00e0" />
                                     
