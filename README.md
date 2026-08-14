@@ -51,7 +51,7 @@ The way the program looks.
 
 The project code had been compiled manually, by command
 
-      javac --module-path path_to_javafx_/lib_library --add-modules javafx.controls TheKeyboard.java
+      javac --module-path path_to_javafx_/lib_library --add-modules javafx.controls *.java 
 
 and run by command
 
@@ -59,7 +59,7 @@ and run by command
 
 during code testing, and writing.
       
-The module-info.java is not compiled, but is not necessary to run the project outside of .jar file.
+The module-info.java is not compiled, but is not necessary to run the project outside of .jar file. Each .java file must be compiled separately, or just do *.java.
       
 At this time, the .jar file theKeyboard.jar can be run (to run the application) by the command
 
@@ -73,7 +73,7 @@ This will be done manually in jpackage likely, without the compromise of an IDE.
       
 This code can be compiled, and run by the two commands provided that you _cd_ to the correct folder, for example where the code files had been downloaded (and are right now), and that _javafx/lib_ library is downloaded.
 
-      javac --module-path path_to_javafx_library --add-modules javafx.controls TheKeyboard.java
+      javac --module-path path_to_javafx_library --add-modules javafx.controls *.java
 
       java --module-path path_to_javafx_library --add-modules javafx.controls TheKeyboard
 
