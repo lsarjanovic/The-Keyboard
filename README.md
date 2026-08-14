@@ -56,7 +56,8 @@ The way the program looks.
       The Keyboard Screen (Pane)
 
 
-<img width="174" height="203" alt="image" src="https://github.com/user-attachments/assets/8db26de8-522c-4c07-94c7-f8add9d33ca0" />
+<img width="174" height="203" alt="dynamic_resizing_of_elements_1" src="https://github.com/user-attachments/assets/8db26de8-522c-4c07-94c7-f8add9d33ca0" />
+<img width="1365" height="345" alt="dynamic_resizing_of_elements_2" src="https://github.com/user-attachments/assets/4d2a5cd2-6afa-4aa2-9150-df76b2bbc845" />
 
       The dynamically resizable elements.
 
