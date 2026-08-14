@@ -29,5 +29,5 @@ java --module-path ../lib/javafx/lib --add-modules javafx.controls TheKeyboard
 javac (command), which will compile the files to .class files, and 
 java (command), which will run the (compiled) .class files.
 
-This code had been written without version-control, but any changes made to the project will be observable in git version control. 
+This code had been written without version-control, but any changes made to the project will be observable in git version control, as it may greatly contribute to the managment of the project.
       
