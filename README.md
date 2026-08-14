@@ -31,6 +31,11 @@ This code can be compiled, and run by the two commands provided that you _cd_ to
 javac (command), which will compile the files to .class files, and 
 java (command), which will run the (compiled) .class files.
 
+Link to the download of JavaFX files.
+      
+      https://www.oracle.com/java/technologies/downloads/javafx/
+
+
 This code had been written without version-control, but any changes made to the project will be observable in git version control, as it may greatly contribute to the managment of the project.
 
 The project includes dynamic resizing with resizing of window of all elements with the resizing of the window, a trie structure with 3 suggest buttons, and the keyboard. There is the _-Home_ button which moves to the Home Pane (Screen), with The Keyboard button, and the *_ _ _* space button, _--D_ button to delete a single character, the shift button _->_, for capital numbers, and _-Discard-_ button which deletes the entire word.
