@@ -8,8 +8,9 @@ In order for a suggestion to be provided, it must be written at least once, ther
 
 This code had been written without version-control, but any changes made to the project will be observable in git version control, as it may greatly contribute to the managment of the project.
 
+The way the program looks.
+            
       _________________________________________________________________________________
-      The way the program looks.
 
 <img width="800" height="455" alt="The Home Screen (Pane), image" class="center" src="https://github.com/user-attachments/assets/369b576f-b2fc-4cef-ac54-7b026611a562" />
                                     
