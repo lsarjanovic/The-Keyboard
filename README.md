@@ -9,10 +9,10 @@ and run by command
 
       java --module-path path_to_javafx_/lib_library --add-modules javafx.controls TheKeyboard
 
-during code testing, and writing. Compiling TheKeyboard.java compiles all .java folders, for it is the highest file in .java file hierarchy of the project.   
-      The module-info.java is not compiled,
-but is not necessary to run the project outside of .jar file, which is why it is present in .jar file
-but not in project src file (which will be in TheKeyboard_project folder).
+during code testing, and writing. Compiling TheKeyboard.java compiles all .java folders, because it is the highest file in .java file hierarchy of the project.   
+      
+The module-info.java is not compiled, but is not necessary to run the project outside of .jar file, which is why it is present in .jar file
+but not in project **src** file (_theKeyboard/src_ folder).
       At this time, a .jar file is placed which can be run by command
 
       java --module-path path_to_javafx_/lib_library add-modules javafx.controls -jar theKeyboard.jar
@@ -21,9 +21,9 @@ but requires javafx libraries to be downloaded, and be in the same folder as the
       
 I am working on improving the user experience by structuring the project in a msi, rpm, and other bundles for different distributions, which would ease the running of the application. 
     
-This will be done manually in jpackage likely, without the compromise of an IDE. Code files, without compiled files can be found in another folder named **src** at theKeyboard/src folder.
+This will be done manually in jpackage likely, without the compromise of an IDE. Code files, without compiled files can be found in another folder named **src** at _theKeyboard/src_ folder.
       
-This code can be compiled, and run by the two commands provided that you _cd_ to the correct folder, for example where they had been downloaded (and are right now), and that javafx_/lib_library is downloaded.
+This code can be compiled, and run by the two commands provided that you _cd_ to the correct folder, for example where they had been downloaded (and are right now), and that _javafx_/lib_library is downloaded.
 
       javac --module-path path_to_javafx_library --add-modules javafx.controls TheKeyboard.java
 
@@ -34,9 +34,9 @@ java (command), which will run the (compiled) .class files.
 
 This code had been written without version-control, but any changes made to the project will be observable in git version control, as it may greatly contribute to the managment of the project.
 
-The project includes dynamic resizing with resizing of window of all elements with the resizing of the window, a trie structure with 3 suggest buttons, and the keyboard. There is the -Home button which moves to the Home Pane (Screen), with The Keyboard button, and the _ _ _ space button, _--D_ button to delete a single character, the shift button _->_, for capital numbers, and _-Discard-_ button which deletes the entire word.
+The project includes dynamic resizing with resizing of window of all elements with the resizing of the window, a trie structure with 3 suggest buttons, and the keyboard. There is the _-Home_ button which moves to the Home Pane (Screen), with The Keyboard button, and the *_ _ _* space button, _--D_ button to delete a single character, the shift button _->_, for capital numbers, and _-Discard-_ button which deletes the entire word.
 
-Additionally, the -Enter- button pushes the written words to the trie structure which writes suggestions (the three buttons) which (attempt to) complete the currently written word, providing the most often recuring (written) word with this root. Therefore, for "en", it would provide "engine" as suggestion one, if it had been written beforehand (more than any other word with the root "en").
+Additionally, the _-Enter-_ button pushes the written words to the trie structure which writes suggestions (the three buttons) which (attempt to) complete the currently written word, providing the most often recuring (written) word with this root. Therefore, for _"en"_ it would provide _"engine"_ as suggestion one, if it had been written beforehand (more than any other word with the root _"en"_).
 In order for a suggestion to be provided, it must be written at least once, therefore, as the user (customer) writes more on the keyboard, he is increasingly provided the suggestion which may be most likely for the way he may speak (write).
 
 The way the program looks.
