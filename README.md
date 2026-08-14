@@ -41,6 +41,8 @@ In order for a suggestion to be provided, it must be written at least once, ther
 
 The way the program looks.
 
+      _________________________________________________________________________________
+
 <img width="800" height="455" alt="The Home Screen (Pane), image" class="center" src="https://github.com/user-attachments/assets/369b576f-b2fc-4cef-ac54-7b026611a562" />
                                     
       The Home Screen (Pane)
@@ -55,9 +57,23 @@ The way the program looks.
 
       The Keyboard Screen (Pane)
 
+      ________________________________________________________________________________
 
-<img width="174" height="203" alt="dynamic_resizing_of_elements_1" src="https://github.com/user-attachments/assets/8db26de8-522c-4c07-94c7-f8add9d33ca0" />
-<img width="1365" height="345" alt="dynamic_resizing_of_elements_2" src="https://github.com/user-attachments/assets/4d2a5cd2-6afa-4aa2-9150-df76b2bbc845" />
+      Dynamic resizing of elements examples
 
-      The dynamically resizable elements.
+<img width="1128" height="480" alt="image" src="https://github.com/user-attachments/assets/6c696aaf-221e-4cfa-989e-11974c968d94" />
+
+      Dynamic resizing of elements 1
+
+<img width="371" height="237" alt="image" src="https://github.com/user-attachments/assets/ccc16d1b-9a1a-4548-b9d8-b5ce5057d9a5" />
+
+      Dynamic resizing of elements 2
+
+<img width="174" height="203" alt="resizing_of_elements_1" src="https://github.com/user-attachments/assets/8db26de8-522c-4c07-94c7-f8add9d33ca0" />
+
+      Dynamic resizing of elements 3
+
+<img width="1365" height="345" alt="resizing_of_elements_2" src="https://github.com/user-attachments/assets/4d2a5cd2-6afa-4aa2-9150-df76b2bbc845" />
+
+      Dynamic resizing of elements 4
 
