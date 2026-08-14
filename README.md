@@ -33,4 +33,7 @@ javac (command), which will compile the files to .class files, and
 java (command), which will run the (compiled) .class files.
 
 This code had been written without version-control, but any changes made to the project will be observable in git version control, as it may greatly contribute to the managment of the project.
-      
+      <img width="1918" height="1079" alt="image" src="https://github.com/user-attachments/assets/38f9b997-6b2f-4f40-bc1e-7fa9779a2c67" />
+      <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d1f9938e-1a14-4ffa-a805-0889d016af47" />
+      <img width="1920" height="1079" alt="image" src="https://github.com/user-attachments/assets/3f31bd6a-68c8-454b-aa01-c8df4e712112" />
+
