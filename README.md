@@ -11,15 +11,14 @@ and run by command
 
 during code testing, and writing. Compiling TheKeyboard.java compiles all .java folders, because it is the highest file in .java file hierarchy of the project.   
       
-The module-info.java is not compiled, but is not necessary to run the project outside of .jar file, which is why it is present in .jar file
-but not in project **src** file (_theKeyboard/src_ folder).
-      At this time, a .jar file is placed which can be run by command
+The module-info.java is not compiled, but is not necessary to run the project outside of .jar file.
+      At this time, a .jar file theKeyboard.jar can be run by command
 
       java --module-path path_to_javafx_/lib_library add-modules javafx.controls -jar theKeyboard.jar
 
 but requires javafx libraries to be downloaded, and be in the same folder as theKeyboard.jar file, and that you may _cd_ to the correct folder, where it had been downloaded for example. 
       
-I am working on improving the user experience by structuring the project in a msi, rpm, and other bundles for different distributions, which would ease the running of the application. 
+I am working on improving the user experience by structuring the project in a msi, rpm, and file types for different distributions, which would ease the running of the application. 
     
 This will be done manually in jpackage likely, without the compromise of an IDE. Code files, without compiled files can be found in another folder named **src** at _theKeyboard/src_ folder.
       
