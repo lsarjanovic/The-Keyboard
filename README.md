@@ -57,7 +57,7 @@ and run by command
 
       java --module-path path_to_javafx_/lib_library --add-modules javafx.controls TheKeyboard
 
-during code testing, and writing. Compiling TheKeyboard.java compiles all .java files in the project.
+during code testing, and writing.
       
 The module-info.java is not compiled, but is not necessary to run the project outside of .jar file.
       
