@@ -65,7 +65,7 @@ The way the program looks.
 
       Dynamic resizing of elements 1
 
-<img width="371" height="237" alt="image" src="https://github.com/user-attachments/assets/ccc16d1b-9a1a-4548-b9d8-b5ce5057d9a5" />
+<img width="757" height="692" alt="image" src="https://github.com/user-attachments/assets/bb043413-f4cb-4ef6-aa04-0501b5bd935d" />
 
       Dynamic resizing of elements 2
 
