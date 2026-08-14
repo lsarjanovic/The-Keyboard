@@ -32,19 +32,19 @@ The way the program looks.
 
 <img width="1128" height="480" alt="image" src="https://github.com/user-attachments/assets/6c696aaf-221e-4cfa-989e-11974c968d94" />
 
-      Image_4: Dynamic resizing of elements 1
+      Image_4: Dynamic resizing of elements __1__
 
 <img width="757" height="692" alt="image" src="https://github.com/user-attachments/assets/bb043413-f4cb-4ef6-aa04-0501b5bd935d" />
 
-      Image_5: Dynamic resizing of elements 2
+      Image_5: Dynamic resizing of elements __2__
 
 <img width="174" height="203" alt="resizing_of_elements_1" src="https://github.com/user-attachments/assets/8db26de8-522c-4c07-94c7-f8add9d33ca0" />
 
-      Image_6: Dynamic resizing of elements 3
+      Image_6: Dynamic resizing of elements __3__
 
 <img width="1365" height="345" alt="resizing_of_elements_2" src="https://github.com/user-attachments/assets/4d2a5cd2-6afa-4aa2-9150-df76b2bbc845" />
 
-      Image_7: Dynamic resizing of elements 4
+      Image_7: Dynamic resizing of elements __4__
       
       ________________________________________________________________
 
