@@ -21,7 +21,7 @@ but requires javafx libraries to be downloaded, and be in the same folder as the
       
 I am working on improving the user experience by structuring the project in a msi, rpm, and other bundles for different distributions, which would ease the running of the application. 
     
-This will be done manually in jpackage likely, without the compromise of an IDE. Code files, without compiled files can be found in another folder named **code**.
+This will be done manually in jpackage likely, without the compromise of an IDE. Code files, without compiled files can be found in another folder named **src** at theKeyboard/src folder.
       
 This code can be compiled, and run by the two commands provided that you _cd_ to the correct folder, for example where they had been downloaded (and are right now), and that javafx_/lib_library is downloaded.
 
@@ -34,7 +34,7 @@ java (command), which will run the (compiled) .class files.
 
 This code had been written without version-control, but any changes made to the project will be observable in git version control, as it may greatly contribute to the managment of the project.
 
-The project includes dynamic resizing with resizing of window of all elements with the resizing of the window, a trie structure with 3 suggest buttons, and the keyboard. There is the -Home button which moves to the Home Pane (Screen), with The Keyboard button, and the _ _ _ space button, --D button to delete a single character, the shift button ->, for capital numbers, and -Discard- button which deletes the entire word.
+The project includes dynamic resizing with resizing of window of all elements with the resizing of the window, a trie structure with 3 suggest buttons, and the keyboard. There is the -Home button which moves to the Home Pane (Screen), with The Keyboard button, and the _ _ _ space button, _--D_ button to delete a single character, the shift button _->_, for capital numbers, and _-Discard-_ button which deletes the entire word.
 
 Additionally, the -Enter- button pushes the written words to the trie structure which writes suggestions (the three buttons) which (attempt to) complete the currently written word, providing the most often recuring (written) word with this root. Therefore, for "en", it would provide "engine" as suggestion one, if it had been written beforehand (more than any other word with the root "en").
 In order for a suggestion to be provided, it must be written at least once, therefore, as the user (customer) writes more on the keyboard, he is increasingly provided the suggestion which may be most likely for the way he may speak (write).
