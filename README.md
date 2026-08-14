@@ -33,7 +33,13 @@ javac (command), which will compile the files to .class files, and
 java (command), which will run the (compiled) .class files.
 
 This code had been written without version-control, but any changes made to the project will be observable in git version control, as it may greatly contribute to the managment of the project.
-      <img width="1918" height="1079" alt="image" src="https://github.com/user-attachments/assets/38f9b997-6b2f-4f40-bc1e-7fa9779a2c67" />
-      <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d1f9938e-1a14-4ffa-a805-0889d016af47" />
-      <img width="1920" height="1079" alt="image" src="https://github.com/user-attachments/assets/3f31bd6a-68c8-454b-aa01-c8df4e712112" />
+
+The project includes dynamic resizing with resizing of window of all elements with the resizing of the window, a trie structure with 3 suggest buttons, and the keyboard. There is the -Home button which moves to the Home Pane (Screen), with The Keyboard button, and the _ _ _ space button, --D button to delete a single character, the shift button ->, for capital numbers, and -Discard- button which deletes the entire word.
+
+Additionally, the -Enter- button pushes the written words to the trie structure which writes suggestions (the three buttons) which (attempt to) complete the currently written word, providing the most often recuring (written) word with this root. Therefore, for "en", it would provide "engine" as suggestion one, if it had been written beforehand (more than any other word with the root "en").
+In order for a suggestion to be provided, it must be written at least once, therefore, as the user (customer) writes more on the keyboard, he is increasingly provided the suggestion which may be most likely for the way he may speak (write).
+
+The way the program looks.
+<img width="964" height="567" alt="image" src="https://github.com/user-attachments/assets/c93a01c5-88cf-437d-ace4-ad5d51f9671f" />
+
 
