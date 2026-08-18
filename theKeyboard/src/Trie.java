@@ -17,7 +17,7 @@ public class Trie {
 		return trie;
 	}
 
-	private void insert(String word) {
+	private void addWord(String word) {
 		NodeTrie trieCurr = this.root;
 
 		for (char character : word.toCharArray()) {
@@ -38,12 +38,12 @@ public class Trie {
 		trieCurr.setEndOfWord(true);
 	}
 
-	public void insertSentence(String sentence) {
+	public void addSentence(String sentence) {
 
 		sentence = sentence.toLowerCase().replaceAll("[^a-zA-Z\\s]", "");
 		String [ ] words = sentence.split("\\s+");
 
-		for (String word : words) this.insert(word);
+		for (String word : words) addWord(word);
 	}
 
 	private void addSuggestionsNext(NodeTrie trieCurr, StringBuilder word,

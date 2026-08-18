@@ -373,7 +373,7 @@ public class TheKeyboardPane {
 		enter.setOnMouseClicked(e -> {
 			String sentence = mainText.getText();
 			if(!sentence.isEmpty()) {
-				trie.insertSentence(sentence);
+				trie.addSentence(sentence);
 				mainText.setText("");
 				setSuggestionsToEmpty(suggestButtons); //Set all displayed suggestions to empty.
 			}
