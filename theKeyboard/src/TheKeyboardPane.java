@@ -624,7 +624,9 @@ public class TheKeyboardPane {
 		Button suggest3 = suggestButtons.get(2);
 
 		if (this.width > this.height) {
-//		root.getChildren().add(suggestButtons.get(0)); //If rotation.
+
+		if (!root.getChildren().contains(suggest1))
+				root.getChildren().add(suggest1);
 
 			suggest1.setLayoutX(0.227 * this.width);
 			suggest2.setLayoutX(0.397 * this.width);
@@ -651,7 +653,8 @@ public class TheKeyboardPane {
 			suggest3.setMinHeight(0.083 * this.height);
 		} else {
 
-//		root.getChildren().remove(suggestButtons.get(0)); //If rotation.
+			if (root.getChildren().contains(suggest1))
+				root.getChildren().remove(suggest1);
 
 
 			suggest2.setLayoutX(0.250 * this.width);
