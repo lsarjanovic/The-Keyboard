@@ -32,10 +32,10 @@ public class Trie {
 			}
 
 			trieCurr = trieNext;
+			trieCurr.incrementFrequency();
 		}
 
 		trieCurr.setEndOfWord(true);
-		trieCurr.incrementFrequency();
 	}
 
 	public void insertSentence(String sentence) {
