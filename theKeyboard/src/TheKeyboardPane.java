@@ -717,33 +717,20 @@ public class TheKeyboardPane {
 
 
 	private String useSuggestion(Text mainText, Button suggest) {
-		String [ ] sentenceWords = mainText.getText().split("\\s+"); //Split the current sentence into words.
-		String word = sentenceWords[sentenceWords.length - 1]; //Get the last word in the sentence.
+		String sentence = mainText.getText();
 
-		//Build the new sentence for text all but the last word.
+		String [ ] words = sentence.split("\\s+");
+
 		StringBuilder sb = new StringBuilder();
-		for (int j = 0; j < sentenceWords.length - 1; j++) { //Add all words other than the last and space between them.
-			sb.append(sentenceWords[j]); //Dodaj vse besede razen zadnje. Zadnjo preuredi na mestih kjer so velike črke z boolean tabelo.
+		for (int i = 0; i < words.length - 1; i++) {
+			sb.append(words[i]);
 			sb.append(" ");
 		}
-		//Make suggestion array of letters.
-		char [ ] suggestion = suggest.getText().toCharArray();
 
-		//Find all upperCase letters in last word.
-		boolean [ ] isUpperCase = new boolean [suggestion.length];
-		int i = 0;
-		for (char crka : word.toCharArray()) {
-			if (crka >= 'A' && crka <= 'Z') isUpperCase[i] = true;
-			i++;
-		}
+		sb.append(suggest.getText());
 
-		//Apply the upperCase prefix to the suggested word.
-		for(int j = 0; j < suggestion.length; j++) {
-			if (isUpperCase[j] && suggestion[j]  >= 'a' && suggestion[j] <= 'z') //If the char in last word should be upperCase 
-				suggestion[j] -= 32;									//according to prefix, then make it upperCase.
-				sb.append(suggestion[j]);
-		}
-		return sb.toString(); //Return the new sentence with the suggested word with correct prefix.
+
+		return sb.toString();
 	}
 
 	//Refreshes suggestions.
