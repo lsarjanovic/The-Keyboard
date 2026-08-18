@@ -79,12 +79,25 @@ public class Trie {
 		}
 	}
 
+	private void collectWords(TrieNode node, String prefix, List <String> suggestions) {
+		if (node.isEndOfWord) {
+			suggestions.add(prefix);
+		} else {
+			char letter;
+			TrieNode childNode;
+			for(Map.Entry <Character, TrieNode> entry : node.children.entrySet()) {
+				letter = entry.getKey();
+				childNode = entry.getValue();
+				collectWords(childNode, prefix + letter, suggestions);
+			}
+		}
+	}
+
+
 	private void addSuggestions(NodeTrie trieCurr, String prefix, List <String> suggestions) {
 
-		int len = prefix.length();
-		for (int i = 0; i < len; i++) {
-			if (trieCurr.getIsEndOfWord()) suggestions.add(prefix);
-
+		if (trieCurr.getIsEndOfWord()) suggestions.add(prefix);
+		else {
 			char letter;
 			NodeTrie trieNext;
 
@@ -95,11 +108,7 @@ public class Trie {
 
 				addSuggestions(trieNext, prefix + letter, suggestions);
 			}
-
 		}
-
-
-
 	}
 
 
