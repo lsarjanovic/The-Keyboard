@@ -1,9 +1,9 @@
 import javafx.application.Application;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.scene.layout.Pane;
 import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
@@ -19,7 +19,7 @@ public class Window extends Application {
 	@Override
 	public void start(Stage stage) {
 
-		this.root = new Pane();
+		this.root = new StackPane();
 
 		this.width = 450;
 		this.height = 1050;
@@ -38,6 +38,8 @@ public class Window extends Application {
 
 		this.rootPaneElem = new RootPaneElements(this, scene);
 
+		root.getChildren().add(this.rootPaneElem.getTheKeyboardPane().getRoot());
+		
 		root.getChildren().add(this.rootPaneElem.getBackground().getRoot());
 		root.getChildren().add(this.rootPaneElem.getMenuPane().getRoot());
 
