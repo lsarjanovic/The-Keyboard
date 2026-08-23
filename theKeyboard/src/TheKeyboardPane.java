@@ -5,6 +5,7 @@ import javafx.scene.text.Text;
 import javafx.scene.control.Button;
 import javafx.scene.shape.Rectangle;
 import java.util.*;
+import java.io.IOException;
 import java.lang.Math;
 import javafx.scene.text.Font;
 import java.lang.StringBuilder;
@@ -14,6 +15,7 @@ public class TheKeyboardPane {
 	private int width;
 	private int height;
 
+	private Trie trie;
 	private Pane root;
 
 	public TheKeyboardPane(Window window, Scene scene) {
@@ -30,7 +32,7 @@ public class TheKeyboardPane {
 		addSuggestButtons(textField, suggestElem);
 
 		Buttons buttons = getButtons(suggestElem);
-		Trie trie = new Trie();
+		trie = new Trie();
 
 		addNavigationButtons(textField, buttons, trie, window);
 
@@ -788,6 +790,19 @@ public class TheKeyboardPane {
 
 		return;
 	}
+
+	public void loadWords() {
+		try {
+			this.trie.loadWords();
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	public void saveWords() {
+		this.trie.saveWords();
+	}
+
 
 	//Submethod of shift(). Makes all letter lowerCase.
 	private void noCaps(TextField textField, ArrayList<Button> keyboardButtons) {

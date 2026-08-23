@@ -1,4 +1,9 @@
 import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class Trie {
 	private NodeTrie root;
@@ -114,6 +119,111 @@ public class Trie {
 			if (!(i < 3)) break;
 
 			suggestions.add(suggestionsNext.get(i));
+		}
+	}
+
+	private int getIndex(String s1) {
+		int size1 = s1.length();
+
+		int index = 0;
+		for (char c : s1.toCharArray()) {
+			if (c != '\t') break;
+
+			index++;
+		}
+
+		return index;
+	}
+
+
+	private boolean getIsEndOfWord(int index, String line) {
+
+		if (line.length() - 1 >= index + 1
+		 && line.charAt(index + 1) == '_') return true;
+		else return false;
+	}
+
+	public void loadWords() throws IOException {
+
+		try {
+			FileReader input = new FileReader("resources/tries.txt");
+
+			BufferedReader bufferedReader = new BufferedReader(input);
+
+			String line = bufferedReader.readLine();
+
+			StringBuilder word = new StringBuilder();
+
+			while(line != null) {
+				int index = getIndex(line);
+				word.delete(index, word.length());
+
+				char letter = line.charAt(index);
+				boolean isEndOfWord = getIsEndOfWord(index, line);
+
+				word.append(letter);
+				if (isEndOfWord) addWord(word.toString());
+
+				line = bufferedReader.readLine();
+			}
+
+			bufferedReader.close();
+		} catch (IOException e) {
+			System.out.print(e.getMessage());
+		}
+	}
+
+	private String getTab(int depth) {
+		StringBuilder tab = new StringBuilder();
+
+		for (int i = 0; i < depth; i++) tab.append('\t');
+
+		return tab.toString();
+	}
+
+	private void setWordLong(NodeTrie trieCurr,
+							 StringBuilder wordCurr,
+							 int depth) {
+
+		HashMap<Character, NodeTrie> triesNext = trieCurr.getTriesNext();
+
+		String tab = getTab(depth);
+
+		for (Map.Entry<Character, NodeTrie> entry : triesNext.entrySet()) {
+			char character = entry.getKey();
+			boolean endOfWord = entry.getValue().getIsEndOfWord();
+
+			wordCurr.append(tab);
+			wordCurr.append(character);
+			if (endOfWord) wordCurr.append('_');
+
+			wordCurr.append('\n');
+
+			NodeTrie trieNext = entry.getValue();
+
+			setWordLong(trieNext, wordCurr, depth + 1);
+		}
+	}
+
+
+	public void saveWords() {
+		StringBuilder wordLong = new StringBuilder();
+
+		NodeTrie root = this.root;
+
+		setWordLong(root, wordLong, 0);
+
+		String text = wordLong.toString();
+
+		try {
+			FileWriter fileWriter = new FileWriter("resources/tries.txt");
+			BufferedWriter f_writer = new BufferedWriter(fileWriter);
+
+			f_writer.write(text);
+
+			f_writer.close();
+		} catch (IOException e) {
+			System.out.print(e.getMessage());
 		}
 	}
 

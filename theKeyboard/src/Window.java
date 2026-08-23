@@ -46,6 +46,13 @@ public class Window extends Application {
 //		keyPressEscape(stage); //Uncomment code to enable screen rotation on ESCAPE
 							   //keypress.
 
+		this.rootPaneElem.getTheKeyboardPane().loadWords();
+
+		stage.setOnCloseRequest(e -> {
+			this.rootPaneElem.getTheKeyboardPane().saveWords();
+		});
+
+
 		stage.setScene(scene);
 		stage.show();
 	}
