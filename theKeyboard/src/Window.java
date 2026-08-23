@@ -13,7 +13,7 @@ public class Window extends Application {
 	private int width;
 	private int height;
 
-	private Pane root;
+	private StackPane root;
 	private RootPaneElements rootPaneElem;
 
 	@Override
@@ -85,11 +85,13 @@ public class Window extends Application {
 		//boolean jeMenuPane = paneRemove.equals("menuPane"); //Works the same way.
 
 		if (jeMenuPane) { //Remove menuPane and add theKeyboardPane.
-			root.getChildren().remove(this.rootPaneElem.getMenuPane().getRoot());
-			root.getChildren().add(this.rootPaneElem.getTheKeyboardPane().getRoot());
+			this.rootPaneElem.getMenuPane().getRoot().toBack();
+			this.rootPaneElem.getBackground().getRoot().toFront();
+			this.rootPaneElem.getTheKeyboardPane().getRoot().toFront();
 		} else { //Remove theKeyboardPane and menuPane.
-			root.getChildren().remove(this.rootPaneElem.getTheKeyboardPane().getRoot());
-			root.getChildren().add(this.rootPaneElem.getMenuPane().getRoot());
+			this.rootPaneElem.getTheKeyboardPane().getRoot().toBack();
+			this.rootPaneElem.getBackground().getRoot().toFront();
+			this.rootPaneElem.getMenuPane().getRoot().toFront();
 		}
 		return;
 	}
