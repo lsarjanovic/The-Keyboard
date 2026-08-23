@@ -59,11 +59,11 @@ during code testing, and writing.
       
 The module-info.java is not compiled, but is not necessary to run the project outside of .jar file. Each .java file must be compiled separately, or just do *.java.
       
-At this time, the .jar file theKeyboard.jar can be run (to run the application) by the command
+At this time, the .jar file TheKeyboard.jar can be run (to run the application) by the command
 
-      java --module-path path_to_javafx_/lib_library --add-modules javafx.controls -jar theKeyboard.jar
+      java --module-path path_to_javafx_/lib_library --add-modules javafx.controls -jar TheKeyboard.jar
 
-but requires javafx libraries to be downloaded, and present in the same folder as theKeyboard.jar file, and that you may _cd_ to the correct folder, where it had been downloaded for example. 
+but requires javafx libraries to be downloaded, and present in the same folder as TheKeyboard.jar file, and that you may _cd_ to the correct folder, where it had been downloaded for example. 
       
 I am working on improving the user experience by packaging the project in a msi, rpm, and other file types for different distributions, which would ease the running of the application. 
     
