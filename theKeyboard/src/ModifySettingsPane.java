@@ -121,7 +121,7 @@ public class ModifySettingsPane {
     private String getScrollPaneStyling() {
         StringBuilder style = new StringBuilder();
 
-        style.append("-fx-background-color: rgba(255, 255, 255, 0.24);");
+        style.append("-fx-background-color: rgba(255, 255, 255, 0);");
         style.append("-fx-background: transparent;");
         style.append("-fx-control-inner-background: transparent;");
 
@@ -210,7 +210,7 @@ public class ModifySettingsPane {
     private String getButtonStyling(int fontSize) {
 		StringBuilder textStyling = new StringBuilder();
 
-		textStyling.append("-fx-background-color: rgba(255, 255, 255, 1);");
+		textStyling.append("-fx-background-color: rgba(255, 255, 255, 0.26);");
 		textStyling.append("-fx-border-color: black;");
 		textStyling.append("-fx-border-width: 2px;");
 		textStyling.append("-fx-text-fill: black;");
