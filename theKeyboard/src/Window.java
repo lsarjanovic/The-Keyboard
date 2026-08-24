@@ -36,7 +36,8 @@ public class Window extends Application {
 		stage.setTitle("The Keyboard");
 
 
-		this.rootPaneElem = new RootPaneElements(this, scene);
+		this.rootPaneElem = getRootPaneElem(this, scene);
+		this.rootPaneElem.addModifySettingsPane(this, scene); //Requires rootPaneElem not null.
 
 		root.getChildren().add(this.rootPaneElem.getTheKeyboardPane().getRoot());
 
@@ -54,9 +55,14 @@ public class Window extends Application {
 			this.rootPaneElem.getTheKeyboardPane().saveWords();
 		});
 
-
 		stage.setScene(scene);
 		stage.show();
+	}
+
+	private RootPaneElements getRootPaneElem(Window window, Scene scene) {
+		RootPaneElements rootPaneElem = new RootPaneElements(window, scene);
+
+		return rootPaneElem;
 	}
 
 	private Image getIcon() {
@@ -112,6 +118,10 @@ public class Window extends Application {
 		return;
 	}
 
+	public Trie getTrie() {
+		return this.rootPaneElem.getTheKeyboardPane().getTrie();
+	}
+
 
 	private static class RootPaneElements {
 		private MenuPane menuPane;
@@ -122,7 +132,6 @@ public class Window extends Application {
 		public RootPaneElements(Window window, Scene scene) {
 			this.menuPane = new MenuPane(window, scene);
 			this.theKeyboardPane = new TheKeyboardPane(window, scene);
-			this.modifySettingsPane = new ModifySettingsPane(window, scene);
 			this.background = new Background(scene);
 		}
 
@@ -136,6 +145,10 @@ public class Window extends Application {
 
 		private ModifySettingsPane getModifySettingsPane() {
 			return this.modifySettingsPane;
+		}
+
+		private void addModifySettingsPane(Window window, Scene scene) {
+			this.modifySettingsPane = new ModifySettingsPane(window, scene);
 		}
 
 		private Background getBackground() {

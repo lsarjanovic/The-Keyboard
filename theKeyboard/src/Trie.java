@@ -51,7 +51,8 @@ public class Trie {
 		for (String word : words) addWord(word);
 	}
 
-	private void addSuggestionsNext(NodeTrie trieCurr, StringBuilder word,
+	private void addSuggestionsNext(NodeTrie trieCurr,
+									StringBuilder word,
 									ArrayList<String> suggestionsNext, int len) {
 
 		if (trieCurr.getIsEndOfWord()) suggestionsNext.add(word.toString());
@@ -120,6 +121,17 @@ public class Trie {
 
 			suggestions.add(suggestionsNext.get(i));
 		}
+	}
+
+	public ArrayList<String> getWords() {
+		NodeTrie trieCurr = this.root;
+		StringBuilder word = new StringBuilder();
+
+		ArrayList<String> words = new ArrayList<String>();
+
+		addSuggestionsNext(trieCurr, word, words, 0);
+
+		return words;
 	}
 
 	private int getIndex(String s1) {

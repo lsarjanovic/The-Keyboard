@@ -861,6 +861,10 @@ public class TheKeyboardPane {
 		return this.root;
 	}
 
+	public Trie getTrie() {
+		return this.trie;
+	}
+
 	public static class Buttons {
 		private SuggestElem suggestElem;
 		private ArrayList<Button> navigationButtons;
