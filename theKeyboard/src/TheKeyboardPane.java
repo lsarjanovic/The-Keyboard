@@ -360,7 +360,7 @@ public class TheKeyboardPane {
 
 		Button home = navigationButtons.get(0);
 		home.setOnMouseClicked(e -> {
-			window.changePane("TheKeyboardPane");
+			window.changePane("menuPane");
 			mainText.setText("");
 			setSuggestionsToEmpty(suggestButtons); //Set all displayed suggestions to empty.
 		});

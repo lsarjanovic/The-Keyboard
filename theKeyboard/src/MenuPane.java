@@ -22,10 +22,11 @@ public class MenuPane {
 
 		EllipseElem ellipseElem = getEllipseElem();
 		TextElem textElem = getTextElem();
+		Button modifySettings = new Button("modifySettings");
 
-		setRootCharacteristics(ellipseElem, textElem, window, scene);
+		setRootCharacteristics(ellipseElem, textElem, modifySettings, window, scene);
 
-		addElements(ellipseElem, textElem, window);
+		addElements(ellipseElem, textElem, modifySettings, window);
 	}
 
 	private EllipseElem getEllipseElem() {
@@ -34,16 +35,16 @@ public class MenuPane {
 		return ellipseElem;
 	}
 
-	private void setRootCharacteristics(EllipseElem ellipseElem, TextElem textElem, Window window, Scene scene) {
+	private void setRootCharacteristics(EllipseElem ellipseElem, TextElem textElem, Button modifySettings, Window window, Scene scene) {
 		this.root.prefWidthProperty().bind(scene.widthProperty());
 		this.root.prefHeightProperty().bind(scene.heightProperty());
 		this.root.widthProperty().addListener((width, prevWidth, nextWidth) -> {
 			this.width = nextWidth.intValue();
-			addElements(ellipseElem, textElem, window);
+			addElements(ellipseElem, textElem, modifySettings, window);
 		});
 		this.root.heightProperty().addListener((height, prevHeight, nextHeight) -> {
 			this.height = nextHeight.intValue();
-			addElements(ellipseElem, textElem, window);
+			addElements(ellipseElem, textElem, modifySettings, window);
 		});
 		this.root.setStyle("-fx-background-color: rgba(0, 0, 0, 0)");
 	}
@@ -88,6 +89,21 @@ public class MenuPane {
 		return heightKPlayText;
 	}
 
+	private String getPlayTextStyling(int fontSize) {
+		StringBuilder textStyling = new StringBuilder();
+
+
+		textStyling.append("-fx-background-color: #F0FFFF;");
+		textStyling.append("-fx-text-fill: black;");
+		textStyling.append("-fx-font-family: Comfortaa;");
+		textStyling.append("-fx-font-size:");
+		textStyling.append(fontSize);
+		textStyling.append("px;");
+		textStyling.append("-fx-font-weight: bold;");
+
+		return textStyling.toString();
+	}
+
 	//Prepares text in play ellipse.
 	private void prepareTextPlay(Text textPlay) {
 		float widthKPlayText = getWidthKPlayText();
@@ -101,17 +117,29 @@ public class MenuPane {
 //		System.out.println(heightKPlayText * this.height);
 
 		int fontSizePlay = getFontSizePlay();
-		textPlay.setStyle("-fx-background-color: #F0FFFF;"
-			+ "-fx-text-fill: black;"
-			+ "-fx-font-family: Comfortaa;"
-			+ "-fx-font-size:" + fontSizePlay + "px;"           
-			+ "-fx-font-weight: bold;");
+		String textStyling = getPlayTextStyling(fontSizePlay);
+
+		textPlay.setStyle(textStyling);
+	}
+
+	private String getAuthorTextStyling(int fontSize) {
+		StringBuilder textStyling = new StringBuilder();
+
+		textStyling.append("-fx-font-size:");
+		textStyling.append(fontSize);
+		textStyling.append("px; -fx-fill: black;");
+		textStyling.append("-fx-font-weight: bold;");
+		textStyling.append("-fx-font-family: Comfortaa;");
+
+		return textStyling.toString();
 	}
 
 	private void prepareAuthor(Text author) { //Prepare the author text.
 		int fontSize = getFontSize();
 
-		author.setStyle("-fx-font-size:" + fontSize + "px; -fx-fill: black; -fx-font-weight: bold; -fx-font-family: Comfortaa;");
+		String textStyling = getAuthorTextStyling(fontSize);
+
+		author.setStyle(textStyling);
 
 		author.setLayoutX(0.083 * this.width);
 		author.setLayoutY(0.7 * this.height);
@@ -172,9 +200,24 @@ public class MenuPane {
 		});
 
 		//keyboardPane function on button_click.
-		playHitbox.setOnMouseClicked (e -> window.changePane("menuPane"));
+		playHitbox.setOnMouseClicked (e ->
+		window.changePane("TheKeyboardPane"));
 	}
 
+	private String getModifySettingsStyling(int fontSize) {
+		StringBuilder textStyling = new StringBuilder();
+
+		textStyling.append("-fx-background-color: rgba(255, 255, 255, 0.24);");
+		textStyling.append("-fx-border-color: black;");
+		textStyling.append("-fx-border-width: 2px;");
+		textStyling.append("-fx-text-fill: black;");
+		textStyling.append("-fx-font-family: Comfortaa;");
+		textStyling.append("-fx-font-size: ");
+		textStyling.append(fontSize);
+		textStyling.append("px;");
+
+		return textStyling.toString();
+	}
 
 	private void prepareEllipseElem(EllipseElem ellipseElem, Window window) {
 
@@ -184,8 +227,23 @@ public class MenuPane {
 		setEllipseElemDynamic(ellipseElem, window);
 	}
 
+	private Button prepareModifySettings(Button modifySettings, Window window) {
+
+		int fontSize = getFontSize();
+		String textStyling = getModifySettingsStyling(fontSize);
+		modifySettings.setStyle(textStyling);
+
+		modifySettings.setLayoutX(0.720 * this.width);
+		modifySettings.setLayoutY(0.850 * this.height);
+
+		modifySettings.setOnMouseClicked(e -> window.changePane("modifySettingsPane"));
+
+
+		return modifySettings;
+	}
+
 	//Add the elements.
-	private void addElements(EllipseElem ellipseElem, TextElem textElem, Window window) {
+	private void addElements(EllipseElem ellipseElem, TextElem textElem, Button modifySettings, Window window) {
 		//Clear all elements.
 		this.root.getChildren().clear();
 
@@ -200,11 +258,14 @@ public class MenuPane {
 		Ellipse play = ellipseElem.getPlay();
 		Ellipse playHitbox = ellipseElem.getPlayHitbox();
 
+		prepareModifySettings(modifySettings, window);
+
 		//Add all elements to root Pane.
 		this.root.getChildren().addAll(author,
 								  play,
 								  playText,
-								  playHitbox);
+								  playHitbox,
+								  modifySettings);
 	}
 
 	public Pane getRoot() {

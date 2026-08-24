@@ -39,7 +39,9 @@ public class Window extends Application {
 		this.rootPaneElem = new RootPaneElements(this, scene);
 
 		root.getChildren().add(this.rootPaneElem.getTheKeyboardPane().getRoot());
-		
+
+		root.getChildren().add(this.rootPaneElem.getModifySettingsPane().getRoot());
+
 		root.getChildren().add(this.rootPaneElem.getBackground().getRoot());
 		root.getChildren().add(this.rootPaneElem.getMenuPane().getRoot());
 
@@ -89,18 +91,23 @@ public class Window extends Application {
 	}
 	*/
 
-	public void changePane(String paneRemove) {
-		boolean jeMenuPane = (paneRemove.equals("menuPane")) ? true : false;
-		//boolean jeMenuPane = paneRemove.equals("menuPane"); //Works the same way.
+	public void changePane(String moveToFront) {
 
-		if (jeMenuPane) { //Remove menuPane and add theKeyboardPane.
+		if (moveToFront.equals("TheKeyboardPane")) {
 			this.rootPaneElem.getMenuPane().getRoot().toBack();
 			this.rootPaneElem.getBackground().getRoot().toFront();
+
 			this.rootPaneElem.getTheKeyboardPane().getRoot().toFront();
-		} else { //Remove theKeyboardPane and menuPane.
+		} else if (moveToFront.equals("menuPane")) {
 			this.rootPaneElem.getTheKeyboardPane().getRoot().toBack();
+			this.rootPaneElem.getModifySettingsPane().getRoot().toBack();
 			this.rootPaneElem.getBackground().getRoot().toFront();
+
 			this.rootPaneElem.getMenuPane().getRoot().toFront();
+		} else if (moveToFront.equals("modifySettingsPane")) {
+			this.rootPaneElem.getMenuPane().getRoot().toBack();
+			this.rootPaneElem.getBackground().getRoot().toFront();
+			this.rootPaneElem.getModifySettingsPane().getRoot().toFront();
 		}
 		return;
 	}
@@ -109,11 +116,13 @@ public class Window extends Application {
 	private static class RootPaneElements {
 		private MenuPane menuPane;
 		private TheKeyboardPane theKeyboardPane;
+		private ModifySettingsPane modifySettingsPane;
 		private Background background;
 
 		public RootPaneElements(Window window, Scene scene) {
 			this.menuPane = new MenuPane(window, scene);
 			this.theKeyboardPane = new TheKeyboardPane(window, scene);
+			this.modifySettingsPane = new ModifySettingsPane(window, scene);
 			this.background = new Background(scene);
 		}
 
@@ -123,6 +132,10 @@ public class Window extends Application {
 
 		private TheKeyboardPane getTheKeyboardPane() {
 			return this.theKeyboardPane;
+		}
+
+		private ModifySettingsPane getModifySettingsPane() {
+			return this.modifySettingsPane;
 		}
 
 		private Background getBackground() {

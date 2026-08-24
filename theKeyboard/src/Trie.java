@@ -241,23 +241,23 @@ public class Trie {
 			this.triesNext = triesNext;
 		}
 
-		public HashMap<Character, NodeTrie> getTriesNext() {
+		private HashMap<Character, NodeTrie> getTriesNext() {
 			return this.triesNext;
 		}
 
-		public boolean getIsEndOfWord() {
+		private boolean getIsEndOfWord() {
 			return this.isEndOfWord;
 		}
 
-		public int getFrequency() {
+		private int getFrequency() {
 			return this.freq;
 		}
 
-		public void setEndOfWord(boolean nextIsEndOfWord) {
+		private void setEndOfWord(boolean nextIsEndOfWord) {
 			this.isEndOfWord = nextIsEndOfWord;
 		}
 
-		public void incrementFrequency() {
+		private void incrementFrequency() {
 			this.freq++;
 		}
 	}
