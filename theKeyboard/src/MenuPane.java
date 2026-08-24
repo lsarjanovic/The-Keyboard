@@ -236,7 +236,10 @@ public class MenuPane {
 		modifySettings.setLayoutX(0.720 * this.width);
 		modifySettings.setLayoutY(0.850 * this.height);
 
-		modifySettings.setOnMouseClicked(e -> window.changePane("modifySettingsPane"));
+		modifySettings.setOnMouseClicked(e -> {
+			window.setDeleteButtons();
+			window.changePane("modifySettingsPane");
+		});
 
 
 		return modifySettings;

@@ -118,6 +118,12 @@ public class Window extends Application {
 		return;
 	}
 
+	public void setDeleteButtons() {
+		Trie trie = getTrie();
+
+		this.rootPaneElem.getModifySettingsPane().setDeleteButtons(trie);
+	}
+
 	public Trie getTrie() {
 		return this.rootPaneElem.getTheKeyboardPane().getTrie();
 	}

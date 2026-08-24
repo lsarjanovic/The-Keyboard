@@ -18,6 +18,7 @@ public class ModifySettingsPane {
     private int height;
 
     private Pane root;
+    private ScrollPane scrollPane;
 
     public ModifySettingsPane(Window window, Scene scene) {
         this.width = 100;
@@ -27,7 +28,7 @@ public class ModifySettingsPane {
 
         Button exit = new Button("Exit settings");
 
-        ScrollPane scrollPane = new ScrollPane();
+        scrollPane = new ScrollPane();
         Text textScrollPane = new Text ("Delete any limited number of words.");
 
         addButtons(exit, scrollPane, textScrollPane, window);
@@ -125,6 +126,25 @@ public class ModifySettingsPane {
         style.append("-fx-control-inner-background: transparent;");
 
         return style.toString();
+    }
+
+    private ScrollPane getScrollPane() {
+        return this.scrollPane;
+    }
+
+    public void setDeleteButtons(Trie trie) {
+        ScrollPane scrollPane = getScrollPane();
+
+        ArrayList<String> words = trie.getWords();
+
+        Collections.sort(words); //Sort alphabetically.
+
+        Pane wordsPane = (Pane) scrollPane.getContent();
+        wordsPane.getChildren().clear();
+
+        addButtons(wordsPane, words, trie);
+
+        scrollPane.setContent(wordsPane);
     }
 
     private void prepareScrollPane(ScrollPane scrollPane, Window window) {
@@ -226,7 +246,6 @@ public class ModifySettingsPane {
 
         this.root.getChildren().addAll(exit, textScrollPane, scrollPane);
     }
-
 
     public Pane getRoot() {
         return this.root;
