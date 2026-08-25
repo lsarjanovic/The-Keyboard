@@ -134,6 +134,73 @@ public class Trie {
 		return words;
 	}
 
+	private void setTriesRemove(NodeTrie [ ] triesRemove, NodeTrie trieNext) {
+		if (triesRemove[1] == null) triesRemove[1] = trieNext;
+		else {
+			triesRemove[0] = triesRemove[1];
+			triesRemove[1] = trieNext;
+		}
+	}
+
+	private void setIndexRemove(int [ ] indexRemove, int index) {
+		if (indexRemove[1] == -1) indexRemove[1] = index;
+		else {
+			indexRemove[0] = indexRemove[1];
+			indexRemove[1] = index;
+		}
+	}
+
+
+	private void removeTries(String word) {
+		NodeTrie trieCurr = this.root;
+
+		char [ ] letters = word.toCharArray();
+
+		int indexRemove = 0;
+		NodeTrie trieRemove = trieCurr;
+
+		int size1 = word.length();
+		for (int i = 0; i < size1; i++) {
+			if (trieCurr.getIsEndOfWord()) {
+				indexRemove = i;
+				trieRemove = trieCurr;
+				break;
+			}
+
+			char character = letters[i];
+			NodeTrie trieNext = trieCurr.getTriesNext().get(character);
+
+			if (trieNext == null) System.out.println("Error deleting word: word not found.");
+
+			trieCurr = trieNext;
+		}
+
+		char character = letters[indexRemove];
+
+		HashMap<Character, NodeTrie> triesNextRemove = trieRemove.getTriesNext();
+		triesNextRemove.remove(letters[indexRemove]);
+	}
+
+	public void removeWord(String word) {
+		NodeTrie trieCurr = this.root;
+
+		char [ ] letters = word.toCharArray();
+
+		int size1 = word.length();
+		for (int i = 0; i < size1; i++) {
+
+			char character = letters[i];
+			NodeTrie trieNext = trieCurr.getTriesNext().get(character);
+
+			if (trieNext == null) System.out.println("Error deleting word: word not found.");
+
+			trieCurr = trieNext;
+		}
+
+		removeTries(word);
+	}
+
+
 	private int getIndex(String s1) {
 		int size1 = s1.length();
 
@@ -146,7 +213,6 @@ public class Trie {
 
 		return index;
 	}
-
 
 	private boolean getIsEndOfWord(int index, String line) {
 
@@ -263,6 +329,10 @@ public class Trie {
 
 		private int getFrequency() {
 			return this.freq;
+		}
+
+		private void removeWordTrie() {
+			this.triesNext = null;
 		}
 
 		private void setEndOfWord(boolean nextIsEndOfWord) {

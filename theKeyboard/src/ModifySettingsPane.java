@@ -100,6 +100,12 @@ public class ModifySettingsPane {
             wordButton.setStyle(textStyling);
             deleteWordButton.setStyle(textStyling);
 
+            deleteWordButton.setOnMouseClicked(e -> {
+                trie.removeWord(word);
+                wordsPane.getChildren().remove(deleteWordButton);
+                wordsPane.getChildren().remove(wordButton);
+            });
+
             yPosition += (0.086 * this.height);
 
             wordsPane.getChildren().addAll(wordButton, deleteWordButton);
