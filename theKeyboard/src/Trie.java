@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
@@ -231,7 +232,48 @@ public class Trie {
 		else return false;
 	}
 
+	private boolean checkIfFolder() {
+		File folder = new File("resources");
+
+		if (folder.exists()) return true;
+		else return false;
+	}
+
+	private boolean checkIfTriesFile() {
+		File file = new File("resources/tries.txt");
+
+		if (file.exists()) return true;
+		else return false;
+	}
+
+	private void makeFolder() {
+		File folder = new File("resources");
+
+		boolean made = folder.mkdir();
+
+		if (!made) System.out.println("Failed to make folder resources/.");
+
+		return;
+	}
+
+	private void makeTriesFile() {
+		File file = new File("resources/tries.txt");
+
+		try {
+			boolean made = file.createNewFile();
+
+			if (!made) System.out.println("Error: Failed to make folder tries.txt at resources/tries.txt");
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 	public void loadWords() throws IOException {
+
+		if (!checkIfTriesFile()) {
+			if (!checkIfFolder()) makeFolder();
+			makeTriesFile();
+		}
 
 		try {
 			FileReader input = new FileReader("resources/tries.txt");
@@ -292,7 +334,6 @@ public class Trie {
 			setWordLong(trieNext, wordCurr, depth + 1);
 		}
 	}
-
 
 	public void saveWords() {
 		StringBuilder wordLong = new StringBuilder();
