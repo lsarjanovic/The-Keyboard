@@ -181,6 +181,15 @@ public class Trie {
 		triesNextRemove.remove(letters[indexRemove]);
 	}
 
+	private boolean lastTrie(NodeTrie trieCurr) {
+		int count = 0;
+
+		for (Map.Entry <Character, NodeTrie> entry : trieCurr.getTriesNext().entrySet()) count++;
+
+		if (count == 0) return true;
+		else return false;
+	}
+
 	public void removeWord(String word) {
 		NodeTrie trieCurr = this.root;
 
@@ -197,7 +206,8 @@ public class Trie {
 			trieCurr = trieNext;
 		}
 
-		removeTries(word);
+		if (trieCurr.getIsEndOfWord()) trieCurr.setEndOfWord(false);
+		if (lastTrie(trieCurr)) removeTries(word);
 	}
 
 
