@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
+import java.io.IOException;
 
 public class Window extends Application {
 
@@ -35,9 +36,11 @@ public class Window extends Application {
 		stage.setFullScreen(true);
 		stage.setTitle("The Keyboard");
 
+		Trie trie = new Trie();
 
-		this.rootPaneElem = getRootPaneElem(this, scene);
-		this.rootPaneElem.addModifySettingsPane(this, scene); //Requires rootPaneElem not null.
+		this.rootPaneElem = getRootPaneElem(this, scene, trie);
+
+		this.rootPaneElem.addModifySettingsPane(this, scene, trie); //Requires rootPaneElem not null.
 
 		root.getChildren().add(this.rootPaneElem.getTheKeyboardPane().getRoot());
 
@@ -49,18 +52,18 @@ public class Window extends Application {
 //		keyPressEscape(stage); //Uncomment code to enable screen rotation on ESCAPE
 							   //keypress.
 
-		this.rootPaneElem.getTheKeyboardPane().loadWords();
+		setLoadWords(trie);
 
 		stage.setOnCloseRequest(e -> {
-			this.rootPaneElem.getTheKeyboardPane().saveWords();
+			trie.saveWords();
 		});
 
 		stage.setScene(scene);
 		stage.show();
 	}
 
-	private RootPaneElements getRootPaneElem(Window window, Scene scene) {
-		RootPaneElements rootPaneElem = new RootPaneElements(window, scene);
+	private RootPaneElements getRootPaneElem(Window window, Scene scene, Trie trie) {
+		RootPaneElements rootPaneElem = new RootPaneElements(window, scene, trie);
 
 		return rootPaneElem;
 	}
@@ -69,6 +72,14 @@ public class Window extends Application {
 		Image icon = new Image(getClass().getResourceAsStream("resources/TheKeyboard.jpg"));
 
 		return icon;
+	}
+
+	private void setLoadWords(Trie trie) {
+		try {
+			trie.loadWords();
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	//Uncomment code to enable screen rotation on ESCAPE keypress.
@@ -118,16 +129,9 @@ public class Window extends Application {
 		return;
 	}
 
-	public void setDeleteButtons() {
-		Trie trie = getTrie();
-
+	public void setDeleteButtons(Trie trie) {
 		this.rootPaneElem.getModifySettingsPane().setDeleteButtons(trie);
 	}
-
-	public Trie getTrie() {
-		return this.rootPaneElem.getTheKeyboardPane().getTrie();
-	}
-
 
 	private static class RootPaneElements {
 		private MenuPane menuPane;
@@ -135,9 +139,9 @@ public class Window extends Application {
 		private ModifySettingsPane modifySettingsPane;
 		private Background background;
 
-		public RootPaneElements(Window window, Scene scene) {
-			this.menuPane = new MenuPane(window, scene);
-			this.theKeyboardPane = new TheKeyboardPane(window, scene);
+		public RootPaneElements(Window window, Scene scene, Trie trie) {
+			this.menuPane = new MenuPane(window, scene, trie);
+			this.theKeyboardPane = new TheKeyboardPane(window, scene, trie);
 			this.background = new Background(scene);
 		}
 
@@ -153,8 +157,8 @@ public class Window extends Application {
 			return this.modifySettingsPane;
 		}
 
-		private void addModifySettingsPane(Window window, Scene scene) {
-			this.modifySettingsPane = new ModifySettingsPane(window, scene);
+		private void addModifySettingsPane(Window window, Scene scene, Trie trie) {
+			this.modifySettingsPane = new ModifySettingsPane(window, scene, trie);
 		}
 
 		private Background getBackground() {

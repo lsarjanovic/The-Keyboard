@@ -15,18 +15,18 @@ public class MenuPane {
 
 	private Pane root;
 
-	public MenuPane(Window window, Scene scene) {
+	public MenuPane(Window window, Scene scene, Trie trie) {
 		this.height = 100; //Default value, changes at full_sceen resize.
 		this.width = 100;  //Default value, changes at full_sceen resize.
 		this.root = new Pane();
 
 		EllipseElem ellipseElem = getEllipseElem();
 		TextElem textElem = getTextElem();
-		Button modifySettings = new Button("modifySettings");
+		ModifySettingsElem modifySettingsElem = getModifySettingsElem(trie);
 
-		setRootCharacteristics(ellipseElem, textElem, modifySettings, window, scene);
+		setRootCharacteristics(ellipseElem, textElem, modifySettingsElem, window, scene);
 
-		addElements(ellipseElem, textElem, modifySettings, window);
+		addElements(ellipseElem, textElem, modifySettingsElem, window);
 	}
 
 	private EllipseElem getEllipseElem() {
@@ -35,16 +35,28 @@ public class MenuPane {
 		return ellipseElem;
 	}
 
-	private void setRootCharacteristics(EllipseElem ellipseElem, TextElem textElem, Button modifySettings, Window window, Scene scene) {
+	private ModifySettingsElem getModifySettingsElem(Trie trie) {
+		Button modifySettings = new Button("modifySettings");
+
+		ModifySettingsElem modifySettingsElem = new ModifySettingsElem(modifySettings, trie);
+
+		return modifySettingsElem;
+	}
+
+	private void setRootCharacteristics(EllipseElem ellipseElem,
+										TextElem textElem,
+										ModifySettingsElem modifySettingsElem,
+										Window window,
+										Scene scene) {
 		this.root.prefWidthProperty().bind(scene.widthProperty());
 		this.root.prefHeightProperty().bind(scene.heightProperty());
 		this.root.widthProperty().addListener((width, prevWidth, nextWidth) -> {
 			this.width = nextWidth.intValue();
-			addElements(ellipseElem, textElem, modifySettings, window);
+			addElements(ellipseElem, textElem, modifySettingsElem, window);
 		});
 		this.root.heightProperty().addListener((height, prevHeight, nextHeight) -> {
 			this.height = nextHeight.intValue();
-			addElements(ellipseElem, textElem, modifySettings, window);
+			addElements(ellipseElem, textElem, modifySettingsElem, window);
 		});
 		this.root.setStyle("-fx-background-color: rgba(0, 0, 0, 0)");
 	}
@@ -227,7 +239,10 @@ public class MenuPane {
 		setEllipseElemDynamic(ellipseElem, window);
 	}
 
-	private Button prepareModifySettings(Button modifySettings, Window window) {
+	private Button prepareModifySettings(ModifySettingsElem modifySettingsElem, Window window) {
+
+		Button modifySettings = modifySettingsElem.getModifySettings();
+		Trie trie = modifySettingsElem.getTrie();
 
 		int fontSize = getFontSize();
 		String textStyling = getModifySettingsStyling(fontSize);
@@ -237,7 +252,7 @@ public class MenuPane {
 		modifySettings.setLayoutY(0.850 * this.height);
 
 		modifySettings.setOnMouseClicked(e -> {
-			window.setDeleteButtons();
+			window.setDeleteButtons(trie);
 			window.changePane("modifySettingsPane");
 		});
 
@@ -246,7 +261,11 @@ public class MenuPane {
 	}
 
 	//Add the elements.
-	private void addElements(EllipseElem ellipseElem, TextElem textElem, Button modifySettings, Window window) {
+	private void addElements(EllipseElem ellipseElem,
+							 TextElem textElem,
+							 ModifySettingsElem modifySettingsElem,
+							 Window window) {
+
 		//Clear all elements.
 		this.root.getChildren().clear();
 
@@ -261,7 +280,9 @@ public class MenuPane {
 		Ellipse play = ellipseElem.getPlay();
 		Ellipse playHitbox = ellipseElem.getPlayHitbox();
 
-		prepareModifySettings(modifySettings, window);
+		prepareModifySettings(modifySettingsElem, window);
+
+		Button modifySettings = modifySettingsElem.getModifySettings();
 
 		//Add all elements to root Pane.
 		this.root.getChildren().addAll(author,
@@ -315,20 +336,38 @@ public class MenuPane {
 	}
 	*/
 
+	private static class ModifySettingsElem {
+		private Button modifySettings;
+		private Trie trie;
+
+		private ModifySettingsElem(Button modifySettings, Trie trie) {
+			this.modifySettings = modifySettings;
+			this.trie = trie;
+		}
+
+		private Button getModifySettings() {
+			return this.modifySettings;
+		}
+
+		private Trie getTrie() {
+			return this.trie;
+		}
+	}
+
 	private static class TextElem {
 		private Text author;
 		private Text playText;
 
-		public TextElem(String author, String playText) {
+		private TextElem(String author, String playText) {
 			this.author = new Text(author);
 			this.playText = new Text(playText);
 		}
 
-		public Text getAuthor() {
+		private Text getAuthor() {
 			return this.author;
 		}
 
-		public Text getPlayText() {
+		private Text getPlayText() {
 			return this.playText;
 		}
 	}
@@ -338,16 +377,16 @@ public class MenuPane {
 		private Ellipse play;
 		private Ellipse playHitbox;
 
-		public EllipseElem() {
+		private EllipseElem() {
 			this.play = new Ellipse();
 			this.playHitbox = new Ellipse();
 		}
 
-		public Ellipse getPlay() {
+		private Ellipse getPlay() {
 			return this.play;
 		}
 
-		public Ellipse getPlayHitbox() {
+		private Ellipse getPlayHitbox() {
 			return this.playHitbox;
 		}
 	}

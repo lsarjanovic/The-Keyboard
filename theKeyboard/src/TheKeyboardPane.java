@@ -15,10 +15,9 @@ public class TheKeyboardPane {
 	private int width;
 	private int height;
 
-	private Trie trie;
 	private Pane root;
 
-	public TheKeyboardPane(Window window, Scene scene) {
+	public TheKeyboardPane(Window window, Scene scene, Trie trie) {
 		this.width = 100;
 		this.height = 100;
 		this.root = new Pane();
@@ -32,7 +31,6 @@ public class TheKeyboardPane {
 		addSuggestButtons(textField, suggestElem);
 
 		Buttons buttons = getButtons(suggestElem);
-		trie = new Trie();
 
 		addNavigationButtons(textField, buttons, trie, window);
 
@@ -791,19 +789,6 @@ public class TheKeyboardPane {
 		return;
 	}
 
-	public void loadWords() {
-		try {
-			this.trie.loadWords();
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-		}
-	}
-
-	public void saveWords() {
-		this.trie.saveWords();
-	}
-
-
 	//Submethod of shift(). Makes all letter lowerCase.
 	private void noCaps(TextField textField, ArrayList<Button> keyboardButtons) {
 		char znak;
@@ -859,10 +844,6 @@ public class TheKeyboardPane {
 
 	public Pane getRoot() {
 		return this.root;
-	}
-
-	public Trie getTrie() {
-		return this.trie;
 	}
 
 	public static class Buttons {

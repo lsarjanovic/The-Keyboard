@@ -20,7 +20,7 @@ public class ModifySettingsPane {
     private Pane root;
     private ScrollPane scrollPane;
 
-    public ModifySettingsPane(Window window, Scene scene) {
+    public ModifySettingsPane(Window window, Scene scene, Trie trie) {
         this.width = 100;
         this.height = 100;
 
@@ -30,23 +30,30 @@ public class ModifySettingsPane {
 
         scrollPane = new ScrollPane();
         Text textScrollPane = new Text ("Delete any limited number of words.");
+        WindowElem windowElem = new WindowElem(window, trie);
 
-        addButtons(exit, scrollPane, textScrollPane, window);
+        addButtons(exit, textScrollPane, windowElem);
 
-        setRootCharacteristics(exit, scrollPane, textScrollPane, window, scene);
+        setRootCharacteristics(exit, textScrollPane, windowElem, scene);
     }
 
-    private void setRootCharacteristics(Button exit, ScrollPane scrollPane, Text textScrollPane, Window window, Scene scene) {
+    private WindowElem getWindowElem(Window window, Trie trie) {
+        WindowElem windowElem = new WindowElem(window, trie);
+
+        return windowElem;
+    }
+
+    private void setRootCharacteristics(Button exit, Text textScrollPane, WindowElem windowElem, Scene scene) {
         this.root.prefWidthProperty().bind(scene.widthProperty());
 
         this.root.prefHeightProperty().bind(scene.heightProperty());
 		this.root.widthProperty().addListener((width, prevWidth, nextWidth) -> {
 			this.width = nextWidth.intValue();
-			addButtons(exit, scrollPane, textScrollPane, window);
+			addButtons(exit, textScrollPane, windowElem);
 
 		});		this.root.heightProperty().addListener((height, prevHeight, nextHeight) -> {
 			this.height = nextHeight.intValue();
-			addButtons(exit, scrollPane, textScrollPane, window);
+			addButtons(exit, textScrollPane, windowElem);
 		});
 		this.root.setStyle("-fx-background-color: rgba(0, 0, 0, 0)");
     }
@@ -139,8 +146,7 @@ public class ModifySettingsPane {
     }
 
     public void setDeleteButtons(Trie trie) {
-        ScrollPane scrollPane = getScrollPane();
-
+        ScrollPane scrollPane = this.scrollPane;
         ArrayList<String> words = trie.getWords();
 
         Collections.sort(words); //Sort alphabetically.
@@ -153,8 +159,8 @@ public class ModifySettingsPane {
         scrollPane.setContent(wordsPane);
     }
 
-    private void prepareScrollPane(ScrollPane scrollPane, Window window) {
-        Trie trie = window.getTrie();
+    private void prepareScrollPane(Trie trie) {
+        ScrollPane scrollPane = this.scrollPane;
 
         Pane wordsPane = getWordsPane(trie);
         wordsPane.setPrefSize(0.30 * this.width, 6.00 * this.height);
@@ -242,19 +248,42 @@ public class ModifySettingsPane {
 		exit.setOnMouseClicked(e -> window.changePane("menuPane"));
     }
 
-    private void addButtons(Button exit, ScrollPane scrollPane, Text textScrollPane, Window window) {
+    private void addButtons(Button exit, Text textScrollPane, WindowElem windowElem) {
         this.root.getChildren().clear();
 
+        Window window = windowElem.getWindow();
+
         prepareExitSettings(exit, window);
-        prepareScrollPane(scrollPane, window);
+
+        Trie trie = windowElem.getTrie();
+
+        prepareScrollPane(trie);
 
         prepareTextScrollPane(textScrollPane);
 
-        this.root.getChildren().addAll(exit, textScrollPane, scrollPane);
+        this.root.getChildren().addAll(exit, textScrollPane, this.scrollPane);
     }
 
     public Pane getRoot() {
         return this.root;
+    }
+
+    private static class WindowElem {
+        private Window window;
+        private Trie trie;
+
+        public WindowElem(Window window, Trie trie) {
+            this.window = window;
+            this.trie = trie;
+        }
+
+        private Window getWindow() {
+            return this.window;
+        }
+
+        private Trie getTrie() {
+            return this.trie;
+        }
     }
 
 }
