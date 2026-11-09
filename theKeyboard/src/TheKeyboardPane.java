@@ -846,7 +846,7 @@ public class TheKeyboardPane {
 		return this.root;
 	}
 
-	public static class Buttons {
+	private static class Buttons {
 		private SuggestElem suggestElem;
 		private ArrayList<Button> navigationButtons;
 		private ArrayList<Button> keyboardButtons;
