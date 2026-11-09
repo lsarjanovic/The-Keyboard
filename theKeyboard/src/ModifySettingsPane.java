@@ -277,11 +277,11 @@ public class ModifySettingsPane {
             this.trie = trie;
         }
 
-        private Window getWindow() {
+        public Window getWindow() {
             return this.window;
         }
 
-        private Trie getTrie() {
+        public Trie getTrie() {
             return this.trie;
         }
     }
