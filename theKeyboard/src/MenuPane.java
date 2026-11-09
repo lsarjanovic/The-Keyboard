@@ -340,16 +340,16 @@ public class MenuPane {
 		private Button modifySettings;
 		private Trie trie;
 
-		private ModifySettingsElem(Button modifySettings, Trie trie) {
+		public ModifySettingsElem(Button modifySettings, Trie trie) {
 			this.modifySettings = modifySettings;
 			this.trie = trie;
 		}
 
-		private Button getModifySettings() {
+		public Button getModifySettings() {
 			return this.modifySettings;
 		}
 
-		private Trie getTrie() {
+		public Trie getTrie() {
 			return this.trie;
 		}
 	}
@@ -358,16 +358,16 @@ public class MenuPane {
 		private Text author;
 		private Text playText;
 
-		private TextElem(String author, String playText) {
+		public TextElem(String author, String playText) {
 			this.author = new Text(author);
 			this.playText = new Text(playText);
 		}
 
-		private Text getAuthor() {
+		public Text getAuthor() {
 			return this.author;
 		}
 
-		private Text getPlayText() {
+		public Text getPlayText() {
 			return this.playText;
 		}
 	}
@@ -377,16 +377,16 @@ public class MenuPane {
 		private Ellipse play;
 		private Ellipse playHitbox;
 
-		private EllipseElem() {
+		public EllipseElem() {
 			this.play = new Ellipse();
 			this.playHitbox = new Ellipse();
 		}
 
-		private Ellipse getPlay() {
+		public Ellipse getPlay() {
 			return this.play;
 		}
 
-		private Ellipse getPlayHitbox() {
+		public Ellipse getPlayHitbox() {
 			return this.playHitbox;
 		}
 	}
