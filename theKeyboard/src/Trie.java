@@ -356,7 +356,7 @@ public class Trie {
 		}
 	}
 
-	public static class NodeTrie {
+private static class NodeTrie {
 		private HashMap <Character, NodeTrie> triesNext;
 		private int freq;
 		private boolean isEndOfWord;
@@ -370,27 +370,27 @@ public class Trie {
 			this.triesNext = triesNext;
 		}
 
-		private HashMap<Character, NodeTrie> getTriesNext() {
+		public HashMap<Character, NodeTrie> getTriesNext() {
 			return this.triesNext;
 		}
 
-		private boolean getIsEndOfWord() {
+		public boolean getIsEndOfWord() {
 			return this.isEndOfWord;
 		}
 
-		private int getFrequency() {
+		public int getFrequency() {
 			return this.freq;
 		}
 
-		private void removeWordTrie() {
+		public void removeWordTrie() {
 			this.triesNext = null;
 		}
 
-		private void setEndOfWord(boolean nextIsEndOfWord) {
+		public void setEndOfWord(boolean nextIsEndOfWord) {
 			this.isEndOfWord = nextIsEndOfWord;
 		}
 
-		private void incrementFrequency() {
+		public void incrementFrequency() {
 			this.freq++;
 		}
 	}
