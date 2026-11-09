@@ -145,23 +145,23 @@ public class Window extends Application {
 			this.background = new Background(scene);
 		}
 
-		private MenuPane getMenuPane() {
+		public MenuPane getMenuPane() {
 			return this.menuPane;
 		}
 
-		private TheKeyboardPane getTheKeyboardPane() {
+		public TheKeyboardPane getTheKeyboardPane() {
 			return this.theKeyboardPane;
 		}
 
-		private ModifySettingsPane getModifySettingsPane() {
+		public ModifySettingsPane getModifySettingsPane() {
 			return this.modifySettingsPane;
 		}
 
-		private void addModifySettingsPane(Window window, Scene scene, Trie trie) {
+		public void addModifySettingsPane(Window window, Scene scene, Trie trie) {
 			this.modifySettingsPane = new ModifySettingsPane(window, scene, trie);
 		}
 
-		private Background getBackground() {
+		public Background getBackground() {
 			return this.background;
 		}
 	}
